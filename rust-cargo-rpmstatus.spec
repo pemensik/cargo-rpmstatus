@@ -24,8 +24,26 @@ Cargo-tree for RPM packaging.}
 
 %package     -n %{crate}
 Summary:        %{summary}
-# FIXME: paste output of %%cargo_license_summary here
-License:        # FIXME
+
+# (MIT OR Apache-2.0) AND Unicode-DFS-2016
+# 0BSD OR MIT OR Apache-2.0
+# Apache-2.0 OR BSL-1.0
+# Apache-2.0 OR ISC OR MIT
+# Apache-2.0 OR MIT
+# Apache-2.0 WITH LLVM-exception OR Apache-2.0 OR MIT
+# BSD-2-Clause OR Apache-2.0 OR MIT
+# BSD-3-Clause
+# GPL-3.0
+# ISC
+# ISC AND MIT AND OpenSSL
+# MIT
+# MIT OR Apache-2.0
+# MIT OR Apache-2.0 OR Zlib
+# MIT OR Zlib OR Apache-2.0
+# MPL-2.0
+# Unlicense OR MIT
+# Zlib OR Apache-2.0 OR MIT
+License:       GPL-3.0 AND Apache-2.0 AND BSD-3-Clause AND ISC AND MIT AND OpenSSL AND MIT AND MPL-2.0
 # LICENSE.dependencies contains a full license breakdown
 
 %description -n %{crate} %{_description}
