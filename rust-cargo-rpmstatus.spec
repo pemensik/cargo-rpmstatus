@@ -11,6 +11,8 @@ Summary:        Cargo-tree for RPM packaging
 License:        GPL-3.0
 URL:            https://crates.io/crates/cargo-rpmstatus
 Source:         %{crates_source}
+# Manually created patch for downstream crate metadata changes
+Patch:          cargo-rpmstatus-fix-metadata.diff
 
 BuildRequires:  cargo-rpm-macros >= 24
 
