@@ -5,15 +5,13 @@
 %global crate cargo-rpmstatus
 
 Name:           rust-cargo-rpmstatus
-Version:        0.2.0
+Version:        0.2.2
 Release:        %autorelease
 Summary:        Cargo-tree for RPM packaging
 
-License:        GPL-3.0
+License:        (MIT OR Apache-2.0) AND GPL-3.0-or-later
 URL:            https://crates.io/crates/cargo-rpmstatus
 Source:         %{crates_source}
-# Manually created patch for downstream crate metadata changes
-Patch:          cargo-rpmstatus-fix-metadata.diff
 
 BuildRequires:  cargo-rpm-macros >= 24
 
@@ -49,7 +47,9 @@ License:       GPL-3.0 AND Apache-2.0 AND BSD-3-Clause AND ISC AND MIT AND OpenS
 %description -n %{crate} %{_description}
 
 %files       -n %{crate}
-%license LICENSE
+%license LICENSE-Apache-2.0
+%license LICENSE-GPL-3.0-or-later
+%license LICENSE-MIT
 %license LICENSE.dependencies
 %doc CHANGELOG.md
 %doc README.md
