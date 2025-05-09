@@ -1,0 +1,17 @@
+[tests]
+skip=["bin is_compatible_"]
+comments=["Skip online tests, check_version_reqs needs connectivity. Not working in mock."]
+
+[requires]
+bin=["rust", "cargo"]
+build=["gzip"]
+
+[package]
+extra-files=["%doc %{_mandir}/man1/%{crate}.1*"]
+
+[scripts]
+install.post=[
+	"mkdir -p %{buildroot}%{_mandir}/man1", 
+	"install -p -m 0644 %{crate}.1 %{buildroot}%{_mandir}/man1", 
+	"gzip %{buildroot}%{_mandir}/man1/%{crate}.*"
+]
