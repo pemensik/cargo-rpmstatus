@@ -25,25 +25,26 @@ Cargo-tree for RPM packaging.}
 %package     -n %{crate}
 Summary:        %{summary}
 
-# (MIT OR Apache-2.0) AND Unicode-DFS-2016 # [1]
+# rawhide: @2025-05-09
+# (MIT OR Apache-2.0) AND GPL-3.0-or-later # [1]
+# (MIT OR Apache-2.0) AND Unicode-DFS-2016 # (dup 1)
 # 0BSD OR MIT OR Apache-2.0
+# Apache-2.0 AND ISC AND (MIT OR Apache-2.0) # (dup 1)
 # Apache-2.0 OR BSL-1.0
 # Apache-2.0 OR ISC OR MIT
-# Apache-2.0 OR MIT # [2] (dup 1)
+# Apache-2.0 OR MIT # (dup 1)
 # Apache-2.0 WITH LLVM-exception OR Apache-2.0 OR MIT
 # BSD-2-Clause OR Apache-2.0 OR MIT
 # BSD-3-Clause
-# GPL-3.0
 # ISC
-# ISC AND MIT AND OpenSSL
 # MIT
-# MIT OR Apache-2.0 # (dup 1,2)
-# MIT OR Apache-2.0 OR Zlib # [3]
-# MIT OR Zlib OR Apache-2.0 # (dup 3!)
+# MIT OR Apache-2.0 # (dup 1)
+# MIT OR Zlib OR Apache-2.0
 # MPL-2.0
+# Unicode-3.0
 # Unlicense OR MIT
-# Zlib OR Apache-2.0 OR MIT # (dup 3!)
-License:       (MIT OR Apache-2.0) AND Unicode-DFS-2016 AND (0BSD OR MIT OR Apache-2.0) AND (Apache-2.0 OR BSL-1.0) AND (Apache-2.0 OR ISC OR MIT) AND (Apache-2.0 WITH LLVM-exception OR Apache-2.0 OR MIT) AND (BSD-2-Clause OR Apache-2.0 OR MIT) AND BSD-3-Clause AND GPL-3.0 AND ISC AND MIT AND OpenSSL AND (MIT OR Apache-2.0 OR Zlib) AND MPL-2.0 AND (Unlicense OR MIT)
+
+License:       (MIT OR Apache-2.0) AND GPL-3.0-or-later AND Unicode-DFS-2016 AND (0BSD OR MIT OR Apache-2.0) AND (Apache-2.0 OR BSL-1.0) AND (Apache-2.0 OR ISC OR MIT) AND (Apache-2.0 WITH LLVM-exception OR Apache-2.0 OR MIT) AND (BSD-2-Clause OR Apache-2.0 OR MIT) AND BSD-3-Clause AND ISC AND MIT AND (MIT OR Apache-2.0 OR Zlib) AND MPL-2.0 AND Unicode-3.0 AND (Unlicense OR MIT)
 
 
 # LICENSE.dependencies contains a full license breakdown
