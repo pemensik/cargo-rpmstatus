@@ -15,8 +15,7 @@ Source:         %{crates_source}
 Patch:          cargo-rpmstatus-fix-metadata.diff
 
 BuildRequires:  cargo-rpm-macros >= 24
-Requires:       cargo
-Requires:       rust
+BuildRequires:  gzip
 
 %global _description %{expand:
 Cargo-tree for RPM packaging.}
@@ -48,6 +47,8 @@ License:       (MIT OR Apache-2.0) AND Unicode-DFS-2016 AND (0BSD OR MIT OR Apac
 
 
 # LICENSE.dependencies contains a full license breakdown
+Requires:       rust
+Requires:       cargo
 
 %description -n %{crate} %{_description}
 
@@ -59,6 +60,7 @@ License:       (MIT OR Apache-2.0) AND Unicode-DFS-2016 AND (0BSD OR MIT OR Apac
 %doc CHANGELOG.md
 %doc README.md
 %{_bindir}/cargo-rpmstatus
+%doc %{_mandir}/man1/%{crate}.1*
 
 %prep
 %autosetup -n %{crate}-%{version} -p1
@@ -74,14 +76,15 @@ License:       (MIT OR Apache-2.0) AND Unicode-DFS-2016 AND (0BSD OR MIT OR Apac
 
 %install
 %cargo_install
+mkdir -p %{buildroot}%{_mandir}/man1
+install -p -m 0644 %{crate}.1 %{buildroot}%{_mandir}/man1
+gzip %{buildroot}%{_mandir}/man1/%{crate}.*
 
 %if %{with check}
 %check
-%if %{with check_online}
-  %cargo_test
-%else
-  %cargo_test is_
-%endif
+# * Skip online tests, check_version_reqs needs connectivity. Not working in
+#   mock.
+%cargo_test -- -- --skip bin is_compatible_
 %endif
 
 %changelog
