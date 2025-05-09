@@ -15,6 +15,8 @@ Source:         %{crates_source}
 Patch:          cargo-rpmstatus-fix-metadata.diff
 
 BuildRequires:  cargo-rpm-macros >= 24
+Requires:       cargo
+Requires:       rust
 
 %global _description %{expand:
 Cargo-tree for RPM packaging.}
