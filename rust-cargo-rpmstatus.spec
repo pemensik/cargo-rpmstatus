@@ -4,18 +4,15 @@
 %global crate cargo-rpmstatus
 
 Name:           rust-cargo-rpmstatus
-Version:        0.2.2
+Version:        0.2.3
 Release:        %autorelease
 Summary:        Cargo-tree for RPM packaging
 
 License:        (MIT OR Apache-2.0) AND GPL-3.0-or-later
 URL:            https://crates.io/crates/cargo-rpmstatus
 Source:         %{crates_source}
-# Manually created patch for downstream crate metadata changes
-Patch:          cargo-rpmstatus-fix-metadata.diff
 
 BuildRequires:  cargo-rpm-macros >= 24
-BuildRequires:  gzip
 
 %global _description %{expand:
 Cargo-tree for RPM packaging.}
@@ -77,15 +74,15 @@ Requires:       cargo
 
 %install
 %cargo_install
+# setup man page
 mkdir -p %{buildroot}%{_mandir}/man1
 install -p -m 0644 %{crate}.1 %{buildroot}%{_mandir}/man1
-gzip %{buildroot}%{_mandir}/man1/%{crate}.*
 
 %if %{with check}
 %check
-# * Skip online tests, check_version_reqs needs connectivity. Not working in
-#   mock.
-%cargo_test -- -- --skip bin is_compatible_
+# * Skip online tests, online_check_version_reqs needs connectivity. Not working
+#   in mock.
+%cargo_test -- -- --skip db::tests::online_check_version_reqs
 %endif
 
 %changelog
